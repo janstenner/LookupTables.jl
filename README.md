@@ -35,9 +35,9 @@ You can now check its values by executing:
 ```Julia
 lookup(10,7,mylookuptable)
   2.0
-lookup(2,3,Cq_lookuptable)
+lookup(2,3,mylookuptable)
   1.0
-lookup(2,5,Cq_lookuptable)
+lookup(2,5,mylookuptable)
   3.0
 ```
 
