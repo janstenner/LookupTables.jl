@@ -1,3 +1,6 @@
+# Copyright (C) 2016 Bernat Zaragoza Travieso
+# See accompanying license file.
+
 module LookupTables
 
 
