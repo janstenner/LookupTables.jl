@@ -11,12 +11,12 @@ export lookup
 # Rows vector: vertical vector containing the values for each row
 # Columns vector: horizontal vector containing the values for each colum
 
-immutable LookupTable2d{T <: Real,U <: Real,V <: Real}
+struct LookupTable2d{T ,U ,V }
 	rowsvector::Array{T,1}
 	columnsvector::Array{U,1}
 	output::Array{V,2}
 	
-	function LookupTable2d(rowsvector::Array{T,1}, columnsvector::Array{U,1}, output::Array{V,2})
+	function LookupTable2d(rowsvector, columnsvector, output)
 		# arguments dimensions check
 		inputcolumns = length(columnsvector)
 		inputrows = length(rowsvector)
@@ -53,11 +53,10 @@ immutable LookupTable2d{T <: Real,U <: Real,V <: Real}
 		elseif columnerror
 			error("Provided columns vector must be strictly monotonic")
 		end
-		new(rowsvector,columnsvector,output)
+		new{typeof(rowsvector[1]), typeof(columnsvector[1]), typeof(output[1])}(rowsvector,columnsvector,output)
 	end
 end
-# This line is key, as it links the constructor of LookupTable2d with any real parameters to the standard constructor
-LookupTable2d{T,U,V}(rowsvector::Array{T,1}, columnsvector::Array{U,1}, output::Array{V,2}) = LookupTable2d{T,U,V}(rowsvector, columnsvector, output)
+
 
 #= Returns the index of the closest smallest number to "value" from the array "l". 
    If "value" exists in "l", it returns the index of this value.
