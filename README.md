@@ -21,13 +21,13 @@ If this is our lookup table:
 ```Julia
 const rowsvector = [2,10]
 const columnsvector = [1,3,7]
-const output = = [1 1 5; 3 3 2]
+const output = [1 1 5; 3 3 2]
 ```
 
 Then create a LookupTable2d object:
 
 ```Julia
-const mylookuptable= LookupTable2d(rowsvector,columnsvector,output)
+const mylookuptable = LookupTable2d(rowsvector,columnsvector,output)
 ```
 
 You can now check its values by executing:
